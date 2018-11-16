@@ -1,0 +1,4 @@
+target/
+.project
+.classpath
+s4hana_pipeline/
