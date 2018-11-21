@@ -22,7 +22,7 @@ public class GetAllBusinessPartnersCommand {
 
     public List<BusinessPartner> execute() throws Exception {
         // TODO: Replace with Virtual Data Model query
-        return null;
+        return service.getAllBusinessPartner().execute();
     }
 
 }
