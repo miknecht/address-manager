@@ -19,7 +19,6 @@ public class GetSingleBusinessPartnerByIdCommand {
     }
 
     public BusinessPartner execute() throws Exception {
-        // TODO: Replace with Virtual Data Model query
-        return null;
+        return service.getBusinessPartnerByKey(id).execute();
     }
 }
