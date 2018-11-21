@@ -10,19 +10,21 @@ import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.Busin
 import com.sap.cloud.sdk.s4hana.datamodel.odata.services.BusinessPartnerService;
 
 public class GetAllBusinessPartnersCommand {
-    private static final Logger logger = CloudLoggerFactory.getLogger(GetAllBusinessPartnersCommand.class);
+	private static final Logger logger = CloudLoggerFactory.getLogger(GetAllBusinessPartnersCommand.class);
 
-    private static final String CATEGORY_PERSON = "1";
+	private static final String CATEGORY_PERSON = "1";
 
-    private final BusinessPartnerService service;
+	private final BusinessPartnerService service;
 
-    public GetAllBusinessPartnersCommand(final BusinessPartnerService service) {
-        this.service = service;
-    }
+	public GetAllBusinessPartnersCommand(final BusinessPartnerService service) {
+		this.service = service;
+	}
 
-    public List<BusinessPartner> execute() throws Exception {
-        // TODO: Replace with Virtual Data Model query
-        return service.getAllBusinessPartner().execute();
-    }
+	public List<BusinessPartner> execute() throws Exception {
+		return service.getAllBusinessPartner()
+				.select(BusinessPartner.FIRST_NAME, BusinessPartner.LAST_NAME, BusinessPartner.BUSINESS_PARTNER)
+				.filter(BusinessPartner.BUSINESS_PARTNER_CATEGORY.eq(CATEGORY_PERSON))
+				.orderBy(BusinessPartner.LAST_NAME, Order.ASC).execute();
+	}
 
 }
