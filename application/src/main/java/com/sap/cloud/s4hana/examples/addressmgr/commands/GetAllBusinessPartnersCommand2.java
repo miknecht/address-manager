@@ -14,25 +14,35 @@ import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.BusinessPartner;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.services.BusinessPartnerService;
 
-public class GetAllBusinessPartnersCommand {
-	private static final Logger logger = CloudLoggerFactory.getLogger(GetAllBusinessPartnersCommand.class);
+public class GetAllBusinessPartnersCommand2 extends CachingErpCommand<List<BusinessPartner>>{
+	private static final Logger logger = CloudLoggerFactory.getLogger(GetAllBusinessPartnersCommand2.class);
 
 	private static final String CATEGORY_PERSON = "1";
 
 	private final BusinessPartnerService service;
 
-	public GetAllBusinessPartnersCommand(final BusinessPartnerService service) {
+	public GetAllBusinessPartnersCommand2(final BusinessPartnerService service) {
+		super(GetAllBusinessPartnersCommand2.class);
 		this.service = service;
 	}
 
-	
-	public List<BusinessPartner> execute() throws Exception {
+	@Override
+	protected List<BusinessPartner> runCacheable() throws Exception {
 		return service.getAllBusinessPartner()
 				.select(BusinessPartner.FIRST_NAME, BusinessPartner.LAST_NAME, BusinessPartner.BUSINESS_PARTNER)
 				.filter(BusinessPartner.BUSINESS_PARTNER_CATEGORY.eq(CATEGORY_PERSON))
 				.orderBy(BusinessPartner.LAST_NAME, Order.ASC).execute();
 	}
 
-
+//	@Override
+//	protected  CacheKey getCommandCacheKey() {
+//		return CacheKey.ofTenantAndUserIsolation();
+//	}
+	
+	@Override
+	protected Cache<CacheKey, List<BusinessPartner>> getCache() {
+		Duration duration = Duration.ofMinutes(5);
+		return CacheBuilder.newBuilder().maximumSize(50).expireAfterWrite(duration).build();
+	}
 
 }
