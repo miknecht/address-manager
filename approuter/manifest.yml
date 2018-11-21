@@ -2,11 +2,11 @@
 applications:
 - name: approuter
   routes:
-    - route: approuter-<subdomain>.cfapps.eu10.hana.ondemand.com
+    - route: approuter-p038767trial.cfapps.eu10.hana.ondemand.com
   path: approuter
   memory: 128M
   env:
     TENANT_HOST_PATTERN: 'approuter-(.*).cfapps.eu10.hana.ondemand.com'
-    destinations: '[{"name":"app-destination", "url" :"https://address-manager-<random-route>.cfapps.eu10.hana.ondemand.com", "forwardAuthToken": true}]'
+    destinations: '[{"name":"app-destination", "url" :"https://address-manager-excellent-toucan.cfapps.eu10.hana.ondemand.com", "forwardAuthToken": true}]'
   services:
     - my-xsuaa
