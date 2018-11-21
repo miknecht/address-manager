@@ -16,6 +16,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 public class TestUtil
 {
+	
     public static WebArchive createDeployment( final Class<?>... classesUnderTest )
     {
         return ShrinkWrap

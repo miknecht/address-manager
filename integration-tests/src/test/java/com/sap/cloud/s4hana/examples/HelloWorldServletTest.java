@@ -17,6 +17,7 @@ import com.sap.cloud.sdk.testutil.MockUtil;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 @RunWith( Arquillian.class )
 public class HelloWorldServletTest
 {
