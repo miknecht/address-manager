@@ -48,6 +48,6 @@ public class HelloWorldServletTest
     public void testService()
     {
         final String body = given().get("/hello").body().asString();
-        assertThat(body).isEqualToIgnoringCase("Hello World!");
+        assertThat(body).isEqualToIgnoringCase("Hello Michael!");
     }
 }
