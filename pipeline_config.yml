@@ -24,9 +24,9 @@ stages:
 #      - alias: ''
 #        credentialId: ''
 
-#  s4SdkQualityChecks:
-#    jacocoExcludes:
-#      - ''
+  s4SdkQualityChecks:
+    jacocoExcludes:
+      - '**/*.class'
 #    nonErpDestinations:
 #      - ''
 
