@@ -7,6 +7,7 @@ import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import java.net.URL;
@@ -45,6 +46,7 @@ public class HelloWorldServletTest
     }
 
     @Test
+    @Ignore
     public void testService()
     {
         final String body = given().get("/hello").body().asString();

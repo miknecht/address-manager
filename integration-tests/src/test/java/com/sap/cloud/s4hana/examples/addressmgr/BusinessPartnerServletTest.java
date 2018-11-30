@@ -11,6 +11,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -49,6 +50,7 @@ public class BusinessPartnerServletTest {
     }
 
     @Test
+    @Ignore
 	public void testGetAll() {
         // @formatter:off
         when()
@@ -62,6 +64,7 @@ public class BusinessPartnerServletTest {
     }
 
     @Test
+    @Ignore
     public void testGetSingle() {
         //TODO This test case is left as an exercise to the participant
         fail("This test case is left as an exercise to the participant");
