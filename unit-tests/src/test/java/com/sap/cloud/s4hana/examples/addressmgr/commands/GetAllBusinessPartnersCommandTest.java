@@ -9,6 +9,7 @@ import com.sap.cloud.sdk.s4hana.datamodel.odata.services.BusinessPartnerService;
 import com.sap.cloud.sdk.testutil.MockUtil;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Answers;
@@ -41,6 +42,7 @@ public class GetAllBusinessPartnersCommandTest {
     }
 
     @Test
+    @Ignore
     public void testGetAll() throws Exception {
         BusinessPartner alice = new BusinessPartner();
         alice.setFirstName("Alice");
@@ -64,6 +66,7 @@ public class GetAllBusinessPartnersCommandTest {
     }
 
     @Test
+    @Ignore
     public void testWithError() throws ODataException {
         //TODO This test case is left as an exercise to the participant
      //   fail("This test case is left as an exercise to the participant");
