@@ -12,7 +12,7 @@ applications:
     SET_LOGGING_LEVEL: '{ROOT: INFO, com.sap.cloud.sdk: INFO}'
 #    ALLOW_MOCKED_AUTH_HEADER: true
 #    destinations: '[{"name": "ErpQueryEndpoint", "url": "https://bupa-mock-odata-persistent-dog.cfapps.eu10.hana.ondemand.com", "username": "<username>", "password": "<password>" }]'
-  services:
+#  services:
 #  - my-application-logs
 #  - my-xsuaa
 #  - my-destination
