@@ -15,5 +15,5 @@ applications:
   services:
 #  - my-application-logs
 #  - my-xsuaa
-  - my-destination
+#  - my-destination
 #  - my-connectivity
