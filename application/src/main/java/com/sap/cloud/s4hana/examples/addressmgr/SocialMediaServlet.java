@@ -1,5 +1,6 @@
 package com.sap.cloud.s4hana.examples.addressmgr;
 
+
 import com.google.gson.Gson;
 import com.sap.cloud.s4hana.examples.addressmgr.commands.GetAllSocialMediaAccountsCommand;
 import com.sap.cloud.s4hana.examples.addressmgr.custom.namespaces.bupasocialmedia.SocialMediaAccount;

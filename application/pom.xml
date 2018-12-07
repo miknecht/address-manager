@@ -21,7 +21,10 @@
     <properties>
         <vdm.inputdir>${project.basedir}/src/main/vdm-input</vdm.inputdir>
         <vdm.tmpdir>${project.basedir}/vdm-output-tmp</vdm.tmpdir>
+         
         <vdm.outputdir>${project.build.outputDirectory}/vdm-output</vdm.outputdir>
+        
+         
     </properties>
 
     <dependencyManagement>
