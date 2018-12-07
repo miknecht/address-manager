@@ -5,13 +5,14 @@ sap.ui.define([
     "sap/ui/demo/addressmgr/controller/BaseController",
     "sap/ui/model/json/JSONModel",
     "sap/ui/Device",
+    "sap/m/MessageBox",
     "sap/ui/demo/addressmgr/model/formatter",
     "sap/ui/demo/addressmgr/model/address",
     "sap/ui/demo/addressmgr/model/MessageType",
     "sap/ui/demo/addressmgr/service/businessPartner",
     "sap/ui/demo/addressmgr/service/socialMediaAccounts",
     "sap/ui/demo/addressmgr/service/translate"
-], function (BaseController, JSONModel, Device, formatter, address, MessageType, businessPartnerService, socialMediaAccountsService, translateService) {
+], function (BaseController, JSONModel, Device, MessageBox, formatter, address, MessageType, businessPartnerService, socialMediaAccountsService, translateService) {
     return BaseController.extend("sap.ui.demo.addressmgr.controller.Detail", {
         viewModelName: "detailView",
         mainModelName: "details",
