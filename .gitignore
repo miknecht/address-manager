@@ -1,4 +1,14 @@
 target/
 .project
 .classpath
+.settings/
 s4hana_pipeline/
+.idea/
+*.iml
+.vscode/
+node_modules/
+.DS_Store
+**/credentials.*
+**/node_modules
+**/package-lock.json
+application/vdm-output-tmp

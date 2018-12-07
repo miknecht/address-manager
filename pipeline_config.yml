@@ -24,18 +24,17 @@ stages:
 #      - alias: ''
 #        credentialId: ''
 
-  s4SdkQualityChecks:
-    jacocoExcludes:
-      - '**/*.class'
-#    vulnerabilityThresholdMedium: '99999'
+#  s4SdkQualityChecks:
+#    jacocoExcludes:
+#      - ''
 #    nonErpDestinations:
 #      - ''
 
-  productionDeployment:
-    cfTargets:
-      - org: 'P038767trial_trial'
-        space: 'dev'
-        apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
-        appName: 'address-manager'
-        manifest: 'manifest.yml'
-        credentialsId: 'CF-DEPLOY'
+#  productionDeployment:
+#    cfTargets:
+#      - org: 'org'
+#        space: 'Productive'
+#        apiEndpoint: 'https://'
+#        appName: 'appName'
+#        manifest: 'manifest.yml'
+#        credentialsId: 'credentialsId'
