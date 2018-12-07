@@ -1,15 +1,10 @@
 <mvc:View
-	controllerName="sap.ui.demo.addressmgr.controller.Detail"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.m.semantic">
-	<semantic:DetailPage
-		id="page"
-		title="{i18n>detailTitle}"
-		busy="{detailView>/busy}">
+	controllerName="sap.ui.demo.addressmgr.controller.Detail" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
+	<semantic:DetailPage id="page"
+		title="{i18n>detailTitle}" busy="{detailView>/busy}">
 		<semantic:content>
-			<ObjectHeader
-				id="objectHeader"
+			<ObjectHeader id="objectHeader"
 				title="{
 					parts: [
 						{ path: 'details>/IsMale' },
@@ -20,62 +15,63 @@
 					formatter: '.formatter.salutation'
 				}">
 				<attributes>
-					<ObjectAttribute text="{
+					<ObjectAttribute
+						text="{
 						path: 'details>/BusinessPartner',
 						formatter: '.formatter.businessPartnerId'
 					}" />
-					<ObjectAttribute text="{
+					<ObjectAttribute active="true"
+						title="{i18n>position}" text="{details>/SearchTerm1}"
+						press="onTranslatePosition" />
+					<ObjectAttribute active="true" title="{i18n>email}"
+						text="{details>/MiddleName}" />
+					<ObjectAttribute
+						text="{
 						path: 'details>/CreationDate',
 						formatter: '.formatter.creationDateValue'
-					}"/>
-					<ObjectAttribute text="{
+					}" />
+					<ObjectAttribute
+						text="{
 						path: 'details>/YY1_AddrLastCheckedBy_bus',
 						formatter: '.formatter.lastCheckedBy'
-					}"/>
-					<ObjectAttribute text="{
+					}" />
+					<ObjectAttribute
+						text="{
 						path: 'details>/YY1_AddrLastCheckedOn_bus',
 						formatter: '.formatter.lastCheckedDateValue'
-					}"/>
+					}" />
 				</attributes>
 			</ObjectHeader>
-			<Button
-				id="checkedAddressesButton"
-				text="{i18n>checkAddressButton}"
-				icon="sap-icon://complete"
-				width="auto"
-				press="onMarkAddressesChecked"
-				class="sapUiResponsiveMargin"
-				/>
-			<Table
-				id="addressList"
-				width="auto"
+			<Button id="checkedAddressesButton"
+				text="{i18n>checkAddressButton}" icon="sap-icon://complete"
+				width="auto" press="onMarkAddressesChecked"
+				class="sapUiResponsiveMargin" />
+			<Table id="addressList" width="auto"
 				items="{details>/to_BusinessPartnerAddress}"
-				noDataText="{i18n>noAddressesText}"
-				class="sapUiResponsiveMargin">
+				noDataText="{i18n>noAddressesText}" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
-						<Title
-							id="lineItemsHeader"
+						<Title id="lineItemsHeader"
 							text="{
 								path: 'details>/to_BusinessPartnerAddress',
 								formatter: '.formatter.addressListTitle'
-							}"/>
-						<ToolbarSpacer/>
+							}" />
+						<ToolbarSpacer />
 						<Button icon="sap-icon://add" press="onAddAddress" />
 					</Toolbar>
 				</headerToolbar>
 				<columns>
 					<Column>
-						<Text text="{i18n>street}"/>
+						<Text text="{i18n>street}" />
 					</Column>
 					<Column>
-						<Text text="{i18n>city}"/>
+						<Text text="{i18n>city}" />
 					</Column>
 					<Column>
-						<Text text="{i18n>country}"/>
+						<Text text="{i18n>country}" />
 					</Column>
 					<Column hAlign="End">
-						<Text text="{i18n>actions}"/>
+						<Text text="{i18n>actions}" />
 					</Column>
 				</columns>
 				<items>
@@ -85,36 +81,34 @@
 							<Text text="{details>PostalCode} {details>CityName}" />
 							<Text text="{details>Country}" />
 							<HBox justifyContent="End">
-								<Button type="Transparent" icon="sap-icon://edit" press="onEditAddress" />
-								<Button type="Transparent" icon="sap-icon://delete" press="onDeleteAddress" />
+								<Button type="Transparent" icon="sap-icon://edit"
+									press="onEditAddress" />
+								<Button type="Transparent" icon="sap-icon://delete"
+									press="onDeleteAddress" />
 							</HBox>
 						</cells>
 					</ColumnListItem>
 				</items>
 			</Table>
-			<Table
-				id="socialMediaAccountList"
-				width="auto"
-				items="{socialMedia>/}"
-				noDataText="{i18n>noAccountsText}"
+			<Table id="socialMediaAccountList" width="auto"
+				items="{socialMedia>/}" noDataText="{i18n>noAccountsText}"
 				class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="accountsToolbar">
-						<Title
-							id="accountsHeader"
+						<Title id="accountsHeader"
 							text="{
 								path: 'socialMedia>/',
 								formatter: '.formatter.accountsListTitle'
-							}"/>
-						<ToolbarSpacer/>
+							}" />
+						<ToolbarSpacer />
 					</Toolbar>
 				</headerToolbar>
 				<columns>
 					<Column>
-						<Text text="{i18n>service}"/>
+						<Text text="{i18n>service}" />
 					</Column>
 					<Column>
-						<Text text="{i18n>account}"/>
+						<Text text="{i18n>account}" />
 					</Column>
 				</columns>
 				<items>

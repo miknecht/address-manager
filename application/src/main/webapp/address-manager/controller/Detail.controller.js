@@ -9,8 +9,9 @@ sap.ui.define([
     "sap/ui/demo/addressmgr/model/address",
     "sap/ui/demo/addressmgr/model/MessageType",
     "sap/ui/demo/addressmgr/service/businessPartner",
-    "sap/ui/demo/addressmgr/service/socialMediaAccounts"
-], function (BaseController, JSONModel, Device, formatter, address, MessageType, businessPartnerService, socialMediaAccountsService) {
+    "sap/ui/demo/addressmgr/service/socialMediaAccounts",
+    "sap/ui/demo/addressmgr/service/translate"
+], function (BaseController, JSONModel, Device, formatter, address, MessageType, businessPartnerService, socialMediaAccountsService, translateService) {
     return BaseController.extend("sap.ui.demo.addressmgr.controller.Detail", {
         viewModelName: "detailView",
         mainModelName: "details",
@@ -39,6 +40,23 @@ sap.ui.define([
         onEditAddress: function (oEvent) {
             var oContext = oEvent.getSource().getBindingContext(this.mainModelName);
             this.openEditDialog(oContext.getModel().getProperty(oContext.getPath()));
+        },
+        
+        onTranslatePosition: function() {
+            const position = this._getCurrentBusinessPartnerPosition();
+            translateService.translate(position)
+                .done(function(data) {
+                    const regexp = /Translation: (.+)/;
+                    const splittedResult = regexp.exec(data);
+                    if(splittedResult == null || splittedResult.length < 2) {
+                        MessageBox.warning("No translation found for '" + position + "'.");
+                    } else {
+                        MessageBox.success("'" + position + "' can be translated as '" + splittedResult[1] + "'.");
+                    }
+                })
+                .fail(function() {
+                    MessageBox.error("Translate request failed.");
+                });
         },
 
         onSubmitEditAddress: function () {
@@ -146,6 +164,20 @@ sap.ui.define([
 
         _getCurrentBusinessPartnerId: function () {
             return this.getMainModel().getProperty("/BusinessPartner");
+        },
+        
+     
+        _getCurrentBusinessPartnerEmail: function () {
+            return this.getMainModel().getProperty("/MiddleName");
+        },
+
+        _getCurrentBusinessPartnerPosition: function () {
+            return this.getMainModel().getProperty("/SearchTerm1");
         }
+        
+        
+        
+        
+        
     });
 });

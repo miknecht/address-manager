@@ -34,12 +34,15 @@ public class GetSingleBusinessPartnerByIdCommand extends ErpCommand<BusinessPart
                         BusinessPartner.IS_MALE,
                         BusinessPartner.IS_FEMALE,
                         BusinessPartner.CREATION_DATE,
+                        BusinessPartner.SEARCH_TERM1,
                         BusinessPartnerCustomFields.ADDRESSES_LAST_CHECKED_ON,
                         BusinessPartnerCustomFields.ADDRESSES_LAST_CHECKED_BY,
+                        
                         BusinessPartner.TO_BUSINESS_PARTNER_ADDRESS.select(
                                 BusinessPartnerAddress.BUSINESS_PARTNER,
                                 BusinessPartnerAddress.ADDRESS_ID,
                                 BusinessPartnerAddress.COUNTRY,
+                                BusinessPartnerAddress.TO_EMAIL_ADDRESS,
                                 BusinessPartnerAddress.POSTAL_CODE,
                                 BusinessPartnerAddress.CITY_NAME,
                                 BusinessPartnerAddress.STREET_NAME,
