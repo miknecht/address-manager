@@ -51,7 +51,7 @@ sap.ui.define([
          * @returns {sap.ui.mvc.View} the view instance
          */
         setViewModel: function (oModel) {
-            return this.setModel(oModel, this.viewModelName);
+					            return this.setModel(oModel, this.viewModelName);
         },
 
         /**
